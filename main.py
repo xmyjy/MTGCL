@@ -126,12 +126,8 @@ for i in range(num):
             print(epoch)
             train(data, tr_mask, p_train, args.model)
 
-        #torch.save(model, cv_path + 'model' + '_' + str(cv_run) + '.pkl')
+        torch.save(model, cv_path + 'model' + '_' + str(cv_run) + '.pkl')
         auc, aupr, x = test(data, te_mask, args.model)
-        # epoch_list.append([epoch + 1, aupr])
-        # epoch_list_auc.append([epoch + 1, auc])
-        # epoch_list.append(aupr)
-        # epoch_list_auc.append(auc)
         print(f' test auc {auc}, test aupr {aupr}')
         AUC[i][cv_run] = auc
         AUPR[i][cv_run] = aupr
